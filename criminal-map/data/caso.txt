@@ -1,0 +1,25 @@
+CASO	THE NEON SOUL MURDER	Um renomado arquiteto de dados foi encontrado morto em seu apartamento. Seu celular desapareceu e registros digitais indicam movimentações suspeitas nas horas anteriores ao crime.	OPEN
+V	S001	suspeito	DANIEL CROSS	Antigo parceiro profissional da vítima. Os dois romperam a sociedade após uma disputa sobre a autoria de um sistema.	38	Engenheiro de sistemas	Sob investigação				img/s001.svg
+V	S002	suspeito	HELENA MOORE	Ex-colaboradora da vítima em pesquisas de interface neural. Afirma não ter mantido contato nos últimos meses.	34	Neurocientista	Pessoa de interesse				img/s002.svg
+V	S003	suspeito	VICTOR HAYES	Diretor de segurança da empresa onde a vítima trabalhava. Tem acesso administrativo aos registros internos.	51	Diretor de segurança	Sob investigação				img/s003.svg
+V	E001	evidencia	Celular criptografado	Aparelho da vítima protegido por criptografia. Parte da memória ainda não foi lida.	0			Dispositivo móvel	2087-03-15		img/e001.svg
+V	E002	evidencia	Cartão de acesso danificado	Cartão com o chip parcialmente queimado, compatível com as portas do Laboratório Aether.	0			Credencial física	2087-03-14		img/e002.svg
+V	E003	evidencia	Registro de áudio corrompido	Gravação de 47 segundos com trechos inaudíveis. Há pelo menos duas vozes.	0			Arquivo de áudio	2087-03-15		img/e003.svg
+V	E004	evidencia	Documento confidencial	Memorando interno sobre o encerramento do projeto conduzido pela vítima.	0			Documento	2087-03-16		img/e004.svg
+V	E005	evidencia	Fragmento de código	Trecho de um script capaz de apagar registros de acesso.	0			Evidência digital	2087-03-16		img/e005.svg
+V	L001	local	Penthouse 404	Apartamento onde a vítima foi encontrada.	0					Torre Meridian, 404º andar, Distrito Alto	img/l001.svg
+V	L002	local	Laboratório Aether	Laboratório de pesquisa com acesso controlado por cartão.	0					Rua Quartzo 88, Setor Industrial	img/l002.svg
+V	L003	local	The Glitch Bar	Bar frequentado por funcionários da empresa. Ainda não há relação registrada com os demais elementos.	0					Beco Sinapse 7, Cidade Baixa	img/l003.svg
+V	L004	local	Scrap Yard	Depósito de sucata eletrônica na saída da cidade.	0					Estrada Ferrugem, km 12, Zona Portuária	img/l004.svg
+V	A001	acontecimento	Reunião não registrada	Encontro que não aparece em nenhuma agenda oficial.	0				2087-03-12T22:30		img/a001.svg
+V	A002	acontecimento	Acesso ao laboratório	Entrada registrada fora do horário de expediente.	0				2087-03-14T21:17		img/a002.svg
+V	A003	acontecimento	Última comunicação com a vítima	Último sinal de contato recebido do aparelho da vítima.	0				2087-03-14T23:42		img/a003.svg
+V	A004	acontecimento	Descoberta do dispositivo	O celular desaparecido foi localizado entre peças descartadas.	0				2087-03-15T14:05		img/a004.svg
+V	A005	acontecimento	Apagamento de registros	Parte do histórico de acessos foi removida remotamente.	0				2087-03-15T00:09		img/a005.svg
+H	H001	SECRET MEETING	Indícios de um encontro reservado no Laboratório Aether envolvendo os três suspeitos e o celular da vítima.	S001,S002,S003,E001,L002
+H	H002	UNAUTHORIZED ACCESS	O cartão danificado liga Daniel Cross a uma entrada no laboratório.	S001,E002,L002
+H	H003	LAST COMMUNICATION	O áudio recuperado menciona Helena Moore próximo ao último contato.	S002,E003,A003
+H	H004	CONFIDENTIAL DOCUMENT	O documento cita Victor Hayes e a pauta da reunião não registrada.	S003,E004,A001
+H	H005	PENTHOUSE SIGNAL	O celular emitiu seu último sinal de dentro do Penthouse 404.	L001,A003,E001
+H	H006	LOG ERASURE	O fragmento de código aparece junto ao acesso ao laboratório e ao apagamento dos registros. A autoria ainda não foi confirmada.	S001,E005,A002,A005
+H	H007	DEVICE RECOVERY	Recuperação do celular criptografado no Scrap Yard.	E001,L004,A004

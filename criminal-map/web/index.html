@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CRIMINAL MAP</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="logo">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2l13 7.500v13L16 30 3 22.500v-13z"/><path d="M16 16L9 11M16 16l8-4M16 16v9"/><circle cx="16" cy="16" r="3"/><circle cx="9" cy="11" r="2"/><circle cx="24" cy="12" r="2"/><circle cx="16" cy="25" r="2"/></svg>
+      <span>CRIMINAL <b>MAP</b></span>
+    </div>
+    <div class="case-title">
+      <small>ACTIVE INVESTIGATION</small>
+      <strong id="topCaseName">—</strong>
+    </div>
+    <span id="topStatus" class="status">—</span>
+    <span id="readOnlyBadge" class="status status-ro" hidden>SOMENTE LEITURA</span>
+    <div class="top-actions">
+      <button class="btn only-narrow" data-action="toggle-left">CASE FILES</button>
+      <button class="btn only-narrow" data-action="toggle-right">ELEMENTOS</button>
+      <button class="btn btn-cyan" data-action="new-case">NEW CASE</button>
+      <button class="btn" data-action="reset-view" title="Restaura posições, zoom e seleção">RESET VIEW</button>
+      <button class="btn btn-icon" data-action="settings" title="Configurações" aria-label="Configurações">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.200"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.900 4.900L7 7M17 17l2.100 2.100M19.100 4.900L17 7M7 17l-2.100 2.100"/><circle cx="12" cy="12" r="7"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <aside id="leftPanel" class="panel panel-left">
+      <h2 class="panel-title">CASE FILES</h2>
+      <div id="caseFiles" class="panel-body"></div>
+    </aside>
+
+    <section class="board-area">
+      <div class="board-toolbar">
+        <h2>INVESTIGATION BOARD</h2>
+        <button class="btn btn-primary" data-action="connect">+ CREATE CONNECTION</button>
+        <button class="btn" data-action="add-element">+ ELEMENTO</button>
+        <button class="btn btn-purple" data-action="analytics">HYPERGRAPH ANALYTICS</button>
+        <button class="btn" data-action="toggle-regions" id="regionsButton" aria-pressed="false">REGIÕES</button>
+        <button class="btn btn-red" data-action="clear" id="clearButton" disabled>CLEAR SELECTION</button>
+      </div>
+      <div id="board" class="board">
+        <div id="world" class="world">
+          <svg id="links" class="links" width="1" height="1"></svg>
+          <div id="hubs"></div>
+          <div id="cards"></div>
+        </div>
+        <div id="emptyBoard" class="empty-board" hidden>
+          <p>O painel deste caso está vazio.</p>
+          <button class="btn btn-primary" data-action="add-element">CADASTRAR PRIMEIRO ELEMENTO</button>
+        </div>
+      </div>
+      <div class="legend">
+        <span class="c-suspeito">Suspeito</span><span class="c-evidencia">Evidência</span>
+        <span class="c-local">Local</span><span class="c-acontecimento">Acontecimento</span>
+        <span class="legend-hub">Hiperaresta</span>
+      </div>
+      <div class="zoom">
+        <button class="btn" data-action="zoom-out" aria-label="Reduzir zoom">−</button>
+        <output id="zoomValue">100%</output>
+        <button class="btn" data-action="zoom-in" aria-label="Aumentar zoom">+</button>
+        <button class="btn" data-action="fit">ENQUADRAR</button>
+      </div>
+    </section>
+
+    <aside id="rightPanel" class="panel panel-right">
+      <div id="rightTabs" class="tabs">
+        <button data-action="tab-suspects">SUSPECTS</button>
+        <button data-action="tab-details">ELEMENT DETAILS</button>
+      </div>
+      <div id="rightBody" class="panel-body"></div>
+    </aside>
+  </main>
+
+  <div id="floating" class="floating" hidden></div>
+  <div id="modal" class="modal" hidden><div id="modalBox" class="modal-box" role="dialog" aria-modal="true"></div></div>
+  <div id="toasts" class="toasts" aria-live="polite"></div>
+
+  <!-- Dados gerados pelo programa em C (usados quando aberto sem o servidor) -->
+  <script src="data.js"></script>
+  <script src="board.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
